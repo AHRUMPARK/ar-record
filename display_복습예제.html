@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<title>
+    <head>
+        <title>display</title>
+        <style>
+            div { display: inline-flex; width: 100px; height: 100px;
+                  margin: 0 1em; outline:5px solid rgba(0,0,0,.5);
+                  vertical-align:top;position:relative;
+                }
+            div::after { content: attr(title); position: absolute;
+                         top:0; bottom: 0; left: -5px; right: -5px; height: 14px;
+                         line-height: 14px; background:rgba(0,0,0,.5);color:#fff;
+                         margin:auto;white-space:nowrap;font-size:11px;text-align:center; }
+            div+div:after{transform:rotate(90deg);}
+            i{flex:0 25px;color:#fff;line-height:25px;}
+            i:nth-child(1){background:red;}
+            i:nth-child(2){background:green;}
+            i:nth-child(3){background:blue;}
+            div+div{flex-direction:column;}
+
+            .flex-start{justify-content:flex-start;}
+            .flex-end{justify-content:flex-end;}
+            .center{justify-content:center;}
+            .space-between{justify-content:space-between;}
+            .space-around{justify-content:space-around;}
+
+        </style>
+    </head>
+    <body>
+        <h2>justify-content: flex-start // default</h2>
+        <div class="flex-start" title="flex-direction:row">
+            <i>1</i><i>2</i><i>3</i>
+        </div>
+        <div class="flex-start" title="flex-direction:column">
+            <i>1</i><i>2</i><i>3</i>
+        </div>
+
+        <h2>justify-content: flex-end</h2>
+        <div class="flex-end" title="flex-direction:row">
+            <i>1</i><i>2</i><i>3</i>
+        </div>
+        <div class="flex-end" title="flex-direction:column">
+            <i>1</i><i>2</i><i>3</i>
+        </div>
+
+        <h2>justify-content: center</h2>
+        <div class="center" title="flex-direction:row">
+            <i>1</i><i>2</i><i>3</i>
+        </div>
+        <div class="center" title="flex-direction:column">
+            <i>1</i><i>2</i><i>3</i>
+        </div>
+
+        <h2>justify-content: space-between</h2>
+        <div class="space-between" title="flex-direction:row">
+            <i>1</i><i>2</i><i>3</i>
+        </div>
+        <div class="space-between" title="flex-direction:column">
+            <i>1</i><i>2</i><i>3</i>
+        </div>
+
+        <h2>justify-content: space-around</h2>
+        <div class="space-around" title="flex-direction:row">
+            <i>1</i><i>2</i><i>3</i>
+        </div>
+        <div class="space-around" title="flex-direction:column">
+            <i>1</i><i>2</i><i>3</i>
+        </div>
+
+    </body>
+</title>
