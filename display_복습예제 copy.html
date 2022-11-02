@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<title>
+    <head>
+        <title>display</title>
+        <style>
+            div { 
+                display: inline-flex; width: 100px; height: 100px;
+                margin: 0 1em; outline: 5px solid rgb(18, 18, 18, 0.5);
+                vertical-align: top;
+                position: relative;
+            }
+            div::after { content: attr(title); position: absolute;
+                        top: 0px; bottom: 0px; left: -5px; right: -5px; height: 18px;
+                        line-height: 15px;
+                        background:rgba(0,0,0,.5);color:#fff;
+                        white-space: wrap;
+                        margin: auto;
+                        font-size: 11px; text-align: center;
+            }
+             /* 위는 두 div에게 title콘텐트에 대한 속성부여, 아래는 두번째 div 요소 뒤에 가상 콘텐츠  tiltle 로테이트 요구한 것*/
+            div+div:after{transform:rotate(90deg);}
+            div+div{flex-direction:column;}
+            
+            i { flex: 0 25px;
+                /* width: 25px; height: 100px;  플랙스를 잘 몰라서 그런것같은데.. 이것때매 두번째 디브가 잘 되지 않음 */  
+                color: #fff; line-height: 25px;
+            }
+            i:nth-child(1) { background-color: red;}
+            i:nth-child(2) { background-color: rgb(0, 133, 33);}
+            i:nth-child(3) { background-color: rgb(4, 0, 129);}
+
+           
+            .flex-start{justify-content:flex-start;}  /* 좌에서 우로  */
+            .flex-end { justify-content: end;}       /*우에서 좌로 시작*/
+            .center { justify-content: center;}      /* 중앙 정렬 */
+            .space-between { justify-content: space-between;} /* 사이 여백 동일하게 */
+            .space-around { justify-content: space-around;}  /* 밖 여백 동일 */
+        </style>
+    </head>
+    <body>
+            <h1>justify-content: flex-start // default</h1>
+            <div class="flex-start" title="flex-direction:row">
+                <i>1</i><i>2</i><i>3</i>
+            </div>
+
+            <div class="flex-start" title="flex-directioncolumn">
+                <i>1</i><i>2</i><i>3</i>
+            </div>
+
+            <h1>justify-content: flex-end</h1>
+            <div class="flex-end" title="flex-direction:row">
+                <i>1</i><i>2</i><i>3</i>
+            </div>
+
+            <div class="flex-end" title="flex-directioncolumn">
+                <i>1</i><i>2</i><i>3</i>
+            </div>
+
+            <h1>justify-content: center</h1>
+            <div class="center" title="flex-direction:row">
+                <i>1</i><i>2</i><i>3</i>
+            </div>
+
+            <div class="center" title="flex-directioncolumn">
+                <i>1</i><i>2</i><i>3</i>
+            </div>
+
+            <h1>justify-content: space-between</h1>
+            <div class="space-between" title="flex-direction:row">
+                <i>1</i><i>2</i><i>3</i>
+            </div>
+
+            <div class="space-between" title="flex-directioncolumn">
+                <i>1</i><i>2</i><i>3</i>
+            </div>
+            
+            <h1>justify-content: space-around</h1>
+            <div class="space-around" title="flex-direction:row">
+                <i>1</i><i>2</i><i>3</i>
+            </div>
+
+            <div class="space-around" title="flex-directioncolumn">
+                <i>1</i><i>2</i><i>3</i>
+            </div>
+         
+    </body>
+</title>

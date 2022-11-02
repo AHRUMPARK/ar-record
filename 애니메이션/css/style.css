@@ -1,0 +1,217 @@
+/* COMMON */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #b1e1e2;
+  animation-name: body;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+
+section {
+  width: 1000px;
+  height: 600px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%);
+}
+
+section .sky {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+section .sky .sun {
+  width: 180px;
+  position: absolute;
+  display: block;
+  left: 50%;
+  margin-left: -90px;
+  top: -130px;
+  transform-origin: center 600px;
+}
+
+section .sky .moon {
+  width: 160px;
+  position: absolute;
+  left: 50%;
+  margin-left: -80px;
+  top: -130px;
+  transform-origin: center 600px;
+}
+
+section .sky .cloud_1 {
+  position: absolute;
+  width: 160px;
+  left: 0%;
+  top: -30px;
+}
+
+section .sky .cloud_2 {
+  position: absolute;
+  width: 90px;
+  left: 12%;
+  top: 20px;
+}
+
+section .city .city_img {
+  position: absolute;
+  bottom: 0px;
+  width: 1000px;
+}
+.cloud_1 {
+  animation-name: cd_1;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+}
+.cloud_2{
+  animation-name: cd_2;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+.sun {
+  animation-name: sun;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+   /* section 크기가 1000*600이다. 기준점 잡을때 transform은 x,y,z축을 쓴다.
+      우리는 중앙의 밑 지점을 기준점을 잡을건데, x축은 center, y축만 필요한 상태다
+      center 정중앙에서, y축의 600을 기준한다.
+   */ 
+  transform-origin: center 600px;
+  animation-timing-function: linear;
+}
+
+.moon {
+  animation-name: moon;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  transform-origin: center 600px;
+  animation-iteration-count: infinite;
+}
+  @keyframes body {
+  0% {
+    background-color: rgb(193, 127, 255);
+  }
+
+  50% {
+    background-color: rgb(130, 254, 153);
+  }
+
+  100% {
+    background-color: rgb(58, 85, 168);
+  }
+  }
+
+  @keyframes cd_1 {
+    0% {
+      left: 0%;
+      opacity: 0;
+    }
+
+    25% {
+      left: 33%;
+      opacity: 0.6;
+    }
+
+    50% {
+      left: 50%;
+      opacity: 0.4;
+    }
+
+    75% {
+      left: 75%;
+      opacity: 0.2;
+    }
+
+    100% {
+      left: 100%;
+      opacity: 0;
+    }
+
+  }
+  @keyframes cd_2 {
+    0% {
+      left: 100%;
+      opacity: 0;
+    }
+
+    25% {
+      left: 60%;
+      opacity: 0.6;
+    }
+
+    50% {
+      left: 45%;
+      opacity: 0.4;
+    }
+
+    75% {
+      left: 30%;
+      opacity: 0.2;
+    }
+
+    100% {
+      left: -100%;
+      opacity: 0;
+    }
+
+  }
+
+  @keyframes sun {
+    0% {
+         transform: rotate(-90deg);
+         opacity: 0;
+    }
+    25% {
+         transform: rotate(0deg);
+         opacity: 1;
+    }
+    50% {
+         transform: rotate(90deg);
+         opacity: 0;
+    }
+    75% {
+         transform: rotate(180deg);
+         opacity: 0;
+    }
+    100% {
+         transform: rotate(270deg);
+         opacity: 0;
+  }}
+
+  @keyframes moon {
+    0% {
+      transform: rotate(180deg);
+      opacity: ;
+    }
+    
+    25% {
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+
+    50% {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+
+    75% {
+      transform: rotate(-90deg);
+      opacity: 0;
+    }
+
+    100% {
+      transform: rotate(-180deg);
+      opacity: 0;
+    }
+  }
