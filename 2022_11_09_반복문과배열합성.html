@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문과 배열</title>
+</head>
+<body>
+    <h1>반복문과 배열</h1>
+    <script>
+        var tel = ['나나', '뽀', '뚜비', '보라돌이','신입1','신입2'];
+    </script>
+    <h2>텔레토비</h2>
+    <ul>
+        <script>
+            // 땡땡이가 4개 반복
+            var i = 0;
+            while( i < tel.length ){
+                // 우연이지만, i와 tel배열의 엘리먼트요소들의 순서가 동일하다 그것을 응용
+                document.write('<li><a href="http://a.com/'+ tel[i] +'">' + tel [i] + '</a></li>');
+                i = i + 1 ; 
+            }
+        </script>
+    </ul>
+</body>
+</html>
