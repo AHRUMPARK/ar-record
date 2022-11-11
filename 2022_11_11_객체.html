@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Object</h1>
+    <script>
+        // coworkers 라는 객체 속에
+        // "rum"이라는 정보를 programmer에 이름표 붙임
+        var coworkers = {
+          "programmer" : "rum" ,
+          "designer" : "sue"
+        };
+        // 정보를 꺼내오는 방법
+        // .(쩜)은 오브젝트 엑세스 오퍼레이터 = 객체에 접근하는 얘
+        document.write('programmer : ' + coworkers.programmer + '<br>');
+        document.write('designer : ' + coworkers.designer + '<br>');
+        // 객체에 정보를 추가 하고 싶을 떄  
+        coworkers.bookkeeper = "nam";   
+        document.write('bookkeeper : ' + coworkers.bookkeeper + '<br>');
+        // 쩜을 통해서 띄어쓰기나 데이터를 넣지 못할 때
+        // 배열을 통해서[""]하면, 띄어쓰기도 가능하다.
+        coworkers["data scientist"] = "backa";
+        document.write('data scientist : ' + coworkers["data scientist"] + '<br>');
+    </script>
+     <h2>Iterate</h2>
+     <script>
+        //  in coworkers라는 객체에 있는 key값들을 가져오는 for:반복문
+        // 여기서 key 값이라 함은? 위의 programmer, designer 등을 의미
+        // 즉 key = 도달하고 싶은 정보의 열쇠 , 배열은 index라고 쓴다.
+        for(var key in coworkers) {
+            // document.write(key + '<br>'); // 키값을 모조리 출력, 특정
+            // document.write(coworkers[key] + '<br>'); // 데이터 값 출력
+            document.write(key + ': ' + coworkers[key] + '<br>'); 
+        }
+     </script>
+</body>
+</html>

@@ -25,23 +25,36 @@
     "> -->
 
     <!-- 위의 코드를 리팩토링! -->
-    <!-- 중복코드 제거와 간결 
+     <!-- 중복코드 제거와 간결  -->
     <input type="button" value="night" onclick="
-        
     if (this.value === 'night'){
         var target = document.querySelector('body');
         target.style.backgroundColor = 'black';
         target.style.color = 'white';
         this.value = 'day';
+
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while( i < alist.length ){
+        alist[i].style.color = 'powderblue';
+        i = i + 1; }
+
     } else {
         target.style.backgroundColor = 'white';
         target.style.color = 'black';
         this.value = 'night';
+
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while( i < alist.length ) {
+            alist[i].style.color = 'blue';
+            i = i + 1;
+     }
     }
-    "> -->
+    "> 
 
     <!-- 반복문 -->
-    <h1><a href="index.html">WEB</a></h1>
+    <!-- <h1><a href="index.html">WEB</a></h1>
     <input type="button" value="night" onclick="
         var target = document.querySelector;
         if (this.value === 'night'){
@@ -75,7 +88,10 @@
         조건문 = 현재 이 버튼의 value값이 무엇인가를 알아내야 한다
         검색창에 자바스크립트 elements get value 검색
         .value라는 프로퍼티를 쓰면 된다!
-    </div>
+    </div> -->
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
 
 </body>
 
