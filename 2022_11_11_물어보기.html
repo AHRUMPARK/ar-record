@@ -4,22 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <title>Document</title>
     <script>
-    function LinkssetColor(color){
-        var alist = document.querySelectorAll('a');
-        var i = 0;
-        while( i < alist.length ){
-            alist[i].style.color = color;
-            i = i + 1;
+        // LinkssetColor객체화
+        var Links = {
+            setColor: function(color){
+            //     var alist = document.querySelectorAll('a');
+            //     var i = 0;
+            //      while( i < alist.length ){
+            //      alist[i].style.color = color;
+            //      i = i + 1;
+            //     }
+            // 컬러값을 두번째 인사를 매개변수로 들어온 컬러값을 준다.
+            $('a').css('color', color);
             }
+        }
+    //위에 객체화
+    // function LinkssetColor(color){
+    //     var alist = document.querySelectorAll('a');
+    //     var i = 0;
+    //     while( i < alist.length ){
+    //         alist[i].style.color = color;
+    //         i = i + 1;
+    //         }
+    // }
+    // 1.바디라는 변수에 객체를 담기 2. 프로퍼티를 샛컬러 지정
+    var Body = {
+        setColor:function (color){
+            // document.querySelector('body').style.color = color;
+            $('body').css('color', color );
+        },
+        setBackgroundColor: function(color){
+            // document.querySelector('body').style.backgroundColor = color;
+            $('body').css('backgroundColor', color );
+        }
     }
-    function BodysetColor(color){
-        document.querySelector('body').style.color = color;
-    }
-    function BodysetBackgroundColor(color){
-        document.querySelector('body').style.backgroundColor = color;
-    }
+    //> Body객체 속에 넣어서 필요 없어짐
+    // function BodysetColor(color){
+    //     document.querySelector('body').style.color = color;
+    // }  
+    // function BodysetBackgroundColor(color){
+    //     document.querySelector('body').style.backgroundColor = color;
+    // }
     function nightDayHandler(self){
         var target = document.querySelector('body');
         if (self.value === 'night'){

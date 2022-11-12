@@ -35,8 +35,21 @@
         for(var key in coworkers) {
             // document.write(key + '<br>'); // 키값을 모조리 출력, 특정
             // document.write(coworkers[key] + '<br>'); // 데이터 값 출력
-            document.write(key + ': ' + coworkers[key] + '<br>'); 
+            
+             
         }
+     </script>
+     <h2>Property & Method</h2>
+     <script>
+        // 객체에 메소드를 추가하는 법 아래는 function showAll(){};와 같다. 객체에 소속된 값을 함수로 지정!
+        // 객체에 소속된 함수 = 메소드 
+        coworkers.showAll = function(){
+            for(var key in coworkers) {
+                document.write(key + " : " + this[key] + '<br>'); //coworkers[key] 라고하면 객체 이름이 바뀌면 좋지 않음
+            }
+        }//그럴땐 해당 객체를 가르키는 약속된 언어 = > this를 쓰자
+        
+        coworkers.showAll(); //객체에 속한 변수는 = 프로퍼티라고 한다.
      </script>
 </body>
 </html>
