@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css</title>
+    <style>
+        h1 {
+            border-bottom: 1px solid gray;
+            text-align: center;
+            font-size: 50px;
+            margin: 0;
+            padding: 20px;
+        }
+
+        ol {
+            border-right: 1px solid gray;
+            width: 100px;
+            margin: 0px;
+            padding: 20px;
+            padding-left: 35px;
+        }
+
+        #grid {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+
+        }
+        #article {
+            padding: 0px 20px 20px 30px;
+        }
+
+    @media (max-width: 500px){
+        #grid {
+            display: block; 
+        }
+        ol{
+            border-right: none;
+        }
+        h1{
+            border-bottom: none;
+        }
+    }
+        
+    </style>
+</head>
+
+<body>
+    <h1>WEB</h1>
+    <div id="grid">
+        <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ol>
+        <div id="article">
+            <h3>HTML</h3>
+            <P>Html is Hypertext Markup Language
+                Html is Hypertext Markup Language
+                Html is Hypertext Markup Language
+                Html is Hypertext Markup Language
+                Html is Hypertext Markup Language
+            </P>
+        </div>
+    </div>
+</body>
+
+</html>
