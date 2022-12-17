@@ -18,12 +18,7 @@ const AR_LOGIN = (Sequelize, DataTypes) => {
             e_mail : { //e_mail varchar(10) not null
                 type : DataTypes.STRING(10),
                 allowNull : false                
-            },
-            user_img : { //user_img varchar(50) not null
-                type : DataTypes.STRING(50),
-                allowNull : false                
             }
-
         },
         {
             tablename : "AR_LOGIN", 

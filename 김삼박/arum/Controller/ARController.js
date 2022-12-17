@@ -1,7 +1,6 @@
 const { AR_LOGIN } = require('../model/ARModel');
 
 
-
 //메인 페이지
 exports.main = (req, res) => {
     console.log('메인 페이지 세션 체크: ', req.session.user);
@@ -139,21 +138,6 @@ exports.user_delete = async (req, res) => {
 };
 
 //마이페이지
-exports.mypage = async (req, res) =>{
-    let result = await AR_LOGIN.findOne({
-        where : { id : `${req.session.user}`}
-    });
-    res.render('mypage', { data : result });
+exports.mypage = (req, res) =>{
+    res.render('mypage');
 };
-
-
-
-exports.upload_file = (req, res) => {
-    console.log(req.body);
-    let result = AR_LOGIN.create({
-        user_img : req.body.userfile
-    },
-    { where :  { id : `${req.session.user}` } }
-    );
-    res.send({ path : req.file.filename });
-    };
