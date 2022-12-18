@@ -231,6 +231,7 @@
         var form = document.getElementById('signup_info');
         //배열 형식 호출 + 반복
         for (const [type, value] of Object.entries(validity)) {
+            console.log(validity);
             if (!value) {
                 alert('형식이 어떤 게 맞지 않는다.')
                 return false;

@@ -14,6 +14,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 //AR_LOGIN DB
-db.AR_LOGIN = require("./define")(sequelize, Sequelize)
+db.User = require("./define.js")(sequelize, Sequelize)
 
 module.exports = db;

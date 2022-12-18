@@ -1,0 +1,62 @@
+/* 파일 날짜 */
+.container > div:nth-child(1) {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+/* 멜론, 유튜브, 지니 아이콘 */
+.container > div > div > img {
+    width:70%;
+    display:block;
+    margin:auto;
+}
+
+table {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin-bottom: 10px;
+}
+
+tr {
+    width: 300px;
+}
+
+
+/* 랭킹 */
+tbody > tr:nth-child(2n-1) > td:nth-child(1){
+    text-align: center;
+    color: blueviolet;
+}
+
+/* 앨범 이미지 */
+tbody > tr > td:nth-child(2) {
+    width: 50px;
+}
+tbody > tr > td:nth-child(2) > img {
+    width: 100%;
+}
+
+/* 가수 */
+tbody > tr > td:nth-child(3) {
+    text-align: left; color: aliceblue; padding-left: 12px;
+}
+
+/* 곡 제목 */
+tbody > tr:nth-child(2n) > td {
+    text-align: left;
+    color: rgb(129, 126, 126);
+    padding-left: 12px
+}
+
+/* 페이지 번호 가운데 정렬 및 커서 포인터로 변경 */
+ul {
+    justify-content: center;
+}
+
+li {
+    cursor: pointer;
+}

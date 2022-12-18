@@ -1,4 +1,4 @@
-const { AR_LOGIN } = require('../model/ARModel');
+const { User } = require('../model/ARModel');
 
 
 
@@ -19,7 +19,7 @@ exports.login_main = (req, res) => {
 
 //로그인 기능
 exports.user_login = (req, res) => {
-    AR_LOGIN.findAll({
+    User.findAll({
         where : { id : req.body.id, pw : req.body.pw },
         limit : 1
     }) 
@@ -45,7 +45,7 @@ exports.register = (req, res) => {
 //아이디 중복 체크
 exports.check_id = async(req, res) => {
     console.log('중복체크 테스트, 아이디');
-    let result = await AR_LOGIN.findOne({
+    let result = await User.findOne({
         where : { id : req.body.id }
     });
     if ( result != null ){
@@ -60,7 +60,7 @@ exports.check_id = async(req, res) => {
 exports.check_name = async(req, res) => {
     console.log('중복체크 테스트, 닉네임');
     console.log(req.body);
-    let result = await AR_LOGIN.findOne({
+    let result = await User.findOne({
         where : { name : req.body.name }
     });
 
@@ -71,7 +71,7 @@ exports.check_name = async(req, res) => {
 //이메일 중복 체크
 exports.check_mail = async(req, res) => {
     console.log('중복체크 테스트, 이메일');
-    let result = await AR_LOGIN.findOne({
+    let result = await User.findOne({
         where : { e_mail : req.body.e_mail },
     });
     if ( result != null ){
@@ -90,7 +90,7 @@ exports.post_signup = (req,res) => {
         pw : req.body.pw,
         e_mail : req.body.e_mail
     };
-    AR_LOGIN.create(data)
+    User.create(data)
     .then((result)=>{
         res.send(true);
     });
@@ -106,7 +106,7 @@ exports.user_logout = (req, res) => {
 
 //회원정보 가져오기
 exports.Edit_info = async (req, res) => {
-    let result = await AR_LOGIN.findOne({
+    let result = await User.findOne({
         where : { id : `${req.session.user}`}
     });
     if(result) {
@@ -119,7 +119,7 @@ exports.Edit_info = async (req, res) => {
 //회원정보 수정
 exports.Edit_info_update = async (req,res) => {
     console.log(req.body);
-    let result = await AR_LOGIN.update(req.body,
+    let result = await User.update(req.body,
     { where : { id : `${req.session.user}` }
     });
     console.log(result);
@@ -129,7 +129,7 @@ exports.Edit_info_update = async (req,res) => {
 //회원 탈퇴
 exports.user_delete = async (req, res) => {
     console.log('회원탈퇴 : ', req.session.user );
-    let result = await AR_LOGIN.destroy(
+    let result = await User.destroy(
     { where : { id : `${req.session.user}` }}
     );
     req.session.destroy(function (err){
@@ -140,7 +140,7 @@ exports.user_delete = async (req, res) => {
 
 //마이페이지
 exports.mypage = async (req, res) =>{
-    let result = await AR_LOGIN.findOne({
+    let result = await User.findOne({
         where : { id : `${req.session.user}`}
     });
     res.render('mypage', { data : result });
@@ -149,11 +149,13 @@ exports.mypage = async (req, res) =>{
 
 
 exports.upload_file = (req, res) => {
+    console.log("넘어오냐 여기?");
+    console.log(req.file);
     console.log(req.body);
-    let result = AR_LOGIN.create({
-        user_img : req.body.userfile
+    let result = User.create({
+        user_img : req.body.img
     },
     { where :  { id : `${req.session.user}` } }
     );
-    res.send({ path : req.file.filename });
+    res.send({ path : req.body.img });
     };

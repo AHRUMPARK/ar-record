@@ -148,8 +148,8 @@
         <div class="my_container">
             <div class=>
                 <form class="mypage Information"  id="profile_info">
-                   
-                        <input type="file" name="userfile" style="display:none;" id="userfile"  onchange="loadFile(this)">
+                    
+                        <input type="file" name="img" style="display:none;" id="userfile" >
                         <button type="button" class="btn btn-primary btn-sm" id="upload_file">프로필 변경</button>
 
                     <div class="nickname">
@@ -163,22 +163,32 @@
     $('#upload_file').on('click', function(){
         $('#userfile').trigger('click');
 
-        var form = document.getElementById('profile_info');
-        var formData = new FormData(form);
+        $('#userfile').change(function(){
+            var form = document.getElementById('profile_info');
+            // var formData = new FormData(form);
+            // formData = { userfile : form.userfile.value };
+            
+            // const formData = new FormData();
+            // const file = document.getElementById('userfile');
+            // formData.append('file', file.file);
 
-        axios({
+            console.log('요청은 가는데 :');
+            axios({
             method : 'post',
             url : '/upload_file',
-            data : { formData },
+            data :  { img :form.img.value } ,
             headers : {
                 'Content-Type': 'multipart/form-data'
             }
         })
         .then((a) => { return a.data ; })
         .then((reuslt) => {
-            document.querySelector('img').src = reuslt.path;
+            document.querySelector('img').src = reuslt.data;
         });
-    });
+      });
+            
+     });
+        
 
     
 </script>

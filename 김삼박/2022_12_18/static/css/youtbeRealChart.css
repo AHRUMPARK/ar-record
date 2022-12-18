@@ -1,0 +1,16 @@
+#dayTag {
+    color: white;
+}
+
+table, tr, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+ul {
+    justify-content: center;
+}
+
+li {
+    cursor: pointer;
+}

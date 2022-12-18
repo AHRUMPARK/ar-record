@@ -1,0 +1,16 @@
+{
+    "development": {
+        "host": "localhost",
+        "database": "test_home",
+        "username": "user",
+        "password": "0530arum",
+        "dialect": "mysql"
+    },
+    "production": {
+        "host": "localhost",
+        "database": "test_home",
+        "username": "user",
+        "password": "0530arum",
+        "dialect": "mysql"
+    }
+}

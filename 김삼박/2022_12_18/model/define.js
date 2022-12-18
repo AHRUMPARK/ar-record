@@ -1,6 +1,6 @@
-const AR_LOGIN = (Sequelize, DataTypes) => {
+const User = (Sequelize, DataTypes) => {
     return Sequelize.define(
-        "AR_LOGIN",//creat table visitor (ID, name, comment)
+        "user",//creat table visitor (ID, name, comment)
         {
             id : { // id varchar(20) not null primary key
                 type : DataTypes.STRING(20),
@@ -19,18 +19,16 @@ const AR_LOGIN = (Sequelize, DataTypes) => {
                 type : DataTypes.STRING(10),
                 allowNull : false                
             },
-            user_img : { //user_img varchar(50) not null
-                type : DataTypes.STRING(50),
-                allowNull : false                
+            user_img : { //user_img varchar(20) null
+                type : DataTypes.STRING(20),           
             }
-
         },
         {
-            tablename : "AR_LOGIN", 
+            tablename : "user", 
             freezeTableName : true, 
             timestamps : false 
         }
     )
 }
 
-module.exports = AR_LOGIN;
+module.exports = User;
