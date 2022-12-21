@@ -20,166 +20,194 @@
         body {
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background: black;
+            background-image: linear-gradient(to bottom, rgba(98, 23, 146, 0) 0%, rgba(92, 23, 146, 0.2) 50%, rgba(92, 23, 146, 0.4) 100%);
             height: 100vh;
+        }
 
+        /* 회원가입 바디 */
+        .outline_line.signup {
+            display: flex;
+            justify-content: center;        
+            align-items: center;
+            /* position: relative; */
+
+            /* top: 50%;
+            left: 50%;  */
+            position: absolute;
+            width: 690px;
+            height: 1000px;
+            border-radius: 60px;
+            background-image: url(../static/img/bg_img.jpg) 0 0 no-repeat;
+            overflow: hidden;
 
         }
 
-        .center {
+        /* 배경이미지 돌리는 법 */
+        .outline_line::before {
+            content: "";
             position: absolute;
-            top: 70%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            width: 200%;
+            height: 200%;
+            /* top: -50%;
+            left: -50%; */
+            z-index: -3;
+
+            background: url(../static/img/bg_img.jpg) 0 0 repeat;
+            transform: rotate(-270deg);
+            background-size: 150%;
+            opacity: 0.7;
+        }
+        .outline_line:first-child{
+            background: url(../static/img/bg_overay.png)0 0 no-repeat;
+            background-size: 900px 850px;
+            background-position : 40% 250%;
+            
+            z-index: 1;
+            background-blend-mode: overlay;
+        }
+
+
+        /* 회원가입 폼 */
+        .center {
+            /* position: absolute;
+            transform: translate(-50%, -50%); */
             width: 400px;
-            background: black;
-            border-radius: 10px;
         }
 
         .center h1 {
             color: white;
             text-align: center;
+            font-weight: 400;
             padding: 0 0 20px 0;
-
         }
 
 
         form .txt_field {
             position: relative;
-            margin: 30px 0;
-
+            margin: 25px 0;
         }
 
+        /* 인풋창 */
         .txt_field input {
             width: 100%;
-            height: 50px;
-            font-size: 16px;
-            background-color: #353535;
+            height: 64px;
+            padding-left: 40px;
+            font-size: 18px;
+            background-color: rgba(186, 186, 186, 0.3);
+            border-radius: 45px;
             border: none;
         }
 
-        .txt_field label {
-            position: absolute;
-            top: 50%;
-            left: 5px;
-            color: #adadad;
-            transform: translateY(-50%);
-            font-size: 16px;
-            pointer-events: none;
-            transition: .5s;
+        /* 인풋창 placeholder */
+        .txt_field input::placeholder {
+            color: #dadada;
         }
 
-
-
-        .pass {
-            margin: -5px 0 20px 5px;
-            color: #a6a6a6;
-            cursor: pointer;
-            text-align: center;
-            padding-bottom: 30px;
+        /* 아이디 중복확인 버튼 */
+        #check_id {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
-
         .check_id {
-            width: 20%;
-            height: 30px;
+            width: 120px;
+            height: 35px;
             border: 1px;
-            background: #380052;
+            border-radius: 5px;
+            background: #FE2983;
             font-size: 15px;
             font-weight: 500;
             cursor: pointer;
         }
 
+        /* 회원가입 버튼 */
         #singup_bt2 {
             width: 100%;
-            height: 50px;
-            border: 1px solid;
-            background: black;
+            height: 64px;
+            background-color: #FE2983;
+            border: none;
             font-size: 18px;
             font-weight: 700;
+            border-radius: 45px;
             cursor: pointer;
-            outline: none;
         }
 
         .form {
             padding-bottom: 20px;
         }
 
-
+        /* 개인 정보 수집 동의 */
         .form-check {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding-bottom: 30px;
         }
 
-
-
-        #check_email {
-            width: 20%;
-            height: 30px;
-            border: 1px;
-            background: #380052;
-            font-size: 15px;
-            font-weight: 500;
-            cursor: pointer;
-
+        .form-check label {
+            margin-left: 10px;
         }
-
-        .form_check_all {
-            margin-top: 50px;
-        }
+        
     </style>
 </head>
 
 <body>
-    <div class="center">
-        <h1>회원가입</h1>
-        <form id="signup_info">
-            <div class="txt_field mb-3">
-                <input type="text" class="form-control" id="check_input_id" name="id" placeholder="아이디를 입력해주세요"
-                    pattern="^([a-zA-Z0-9가-힣]{5,15})$" title="대소문자, 한글, 숫자, 5글자 이상 15글자 이하" required>
-            </div>
-            <div class="txt_field mb-3">
-                <button type="button" style="color:white;" class="check_id" onclick="idValidity()">중복 체크</button>
-            </div>
-            <div class="txt_field" id="id_check_sucess"></div>
-
-            <div class="txt_field">
-                <input type="text" class="form-control" id="check_input_name" name="name" oninput="nickValidity(this)"
-                    placeholder="닉네임을 입력해주세요" title="대소문자, 한글, 숫자, 5글자 이상 15글자 이하" pattern="^([a-zA-Z0-9가-힣]{3,6})$"
-                    required>
-                <div class="txt_field" id="name_check_sucess"></div>
-            </div>
-            <div class="txt_field">
-                <input type="password" class="form-control" name="pw" oninput="pwValidity(this)"
-                    placeholder="비밀번호를 입력해주세요" title="최소 8 자, 최소 하나의 문자, 하나의 숫자 및 하나의 특수 문자"
-                    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!%*#?&])[A-Za-z\d@!%*#?&]{8,}$" required>
-            </div>
-            <div class="txt_field">
-                <input type="password" class="form-control" name="rePw" placeholder="비밀번호를 확인해주세요"
-                    oninput="rePwValidity(this)" title="비밀번호가 일치하지 않습니다."
-                    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!%*#?&])[A-Za-z\d@!%*#?&]{8,}$" required>
-            </div>
-            <div class="txt_field" id="pw_check_sucess"></div>
-            <div class="txt_field">
-                <input type="email" class="form-control" name="e_mail" id="check_input_mail"
-                    oninput="mailValidity(this)" placeholder="이메일을 입력해주세요" title="이메일 양식에 맞게 입력해주세요" required>
-            </div>
-            <div class="txt_field" id="mail_check_sucess"></div>
-
-            <form class="checkbox_group">
-                <div class="form-check" style="color:white;">
-                    <input class="form-check-input" type="checkbox" name="chk" id="agreeValidity" onclick="agree_check()">
-                    <label class="form-check-label" for="flexCheckDefault2">
-                        개인 정보 수집 이용 동의
-                    </label>
+    <div class="outline_line signup">
+        <div class="center">
+            <h1>SIGNUP</h1>
+            <form id="signup_info">
+                <div class="txt_field mb-3">
+                    <input type="text" class="form-control" id="check_input_id" name="id" placeholder="아이디를 입력해주세요"
+                        pattern="^([a-zA-Z0-9가-힣]{5,15})$" title="대소문자, 한글, 숫자, 5글자 이상 15글자 이하" required>
                 </div>
+                <div class="txt_field mb-3" id="check_id">
+                    <button type="button" style="color:white;" class="check_id" onclick="idValidity()">중복 체크</button>
+                </div>
+                <div class="txt_field" id="id_check_sucess"></div>
 
-            </form class="form">
-            <div class="txt_field" id="agree_check_sucess"></div>
+                <div class="txt_field">
+                    <input type="text" class="form-control" id="check_input_name" name="name"
+                        oninput="nickValidity(this)" placeholder="닉네임을 입력해주세요" title="대소문자, 한글, 숫자, 5글자 이상 15글자 이하"
+                        pattern="^([a-zA-Z0-9가-힣]{3,6})$" required>
+                    <div class="txt_field" id="name_check_sucess"></div>
+                </div>
+                <div class="txt_field">
+                    <input type="password" class="form-control" name="pw" oninput="pwValidity(this)"
+                        placeholder="비밀번호를 입력해주세요" title="최소 8 자, 최소 하나의 문자, 하나의 숫자 및 하나의 특수 문자"
+                        pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!%*#?&])[A-Za-z\d@!%*#?&]{8,}$" required>
+                </div>
+                <div class="txt_field">
+                    <input type="password" class="form-control" name="rePw" placeholder="비밀번호를 확인해주세요"
+                        oninput="rePwValidity(this)" title="비밀번호가 일치하지 않습니다."
+                        pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!%*#?&])[A-Za-z\d@!%*#?&]{8,}$" required>
+                </div>
+                <div class="txt_field" id="pw_check_sucess"></div>
+                <div class="txt_field">
+                    <input type="email" class="form-control" name="e_mail" id="check_input_mail"
+                        oninput="mailValidity(this)" placeholder="이메일을 입력해주세요" title="이메일 양식에 맞게 입력해주세요" required>
+                </div>
+                <div class="txt_field" id="mail_check_sucess"></div>
 
-            <button type="button" style="color:white; margin-bottom: 20px;" id="singup_bt2"
-                onclick="register()">회원가입</button>
-    </div>
-    </form>
+                <form class="checkbox_group">
+                    <div class="form-check" style="color:white;">
+                        <input class="form-check-input" type="checkbox" name="chk" id="agreeValidity"
+                            onclick="agree_check()">
+                        <label class="form-check-label" for="flexCheckDefault2">
+                            개인 정보 수집 이용 동의
+                        </label>
+                    </div>
+
+                </form class="form">
+                <div class="txt_field" id="agree_check_sucess"></div>
+
+                <button type="button" style="color:white; margin-bottom: 20px;" id="singup_bt2"
+                    onclick="register()">회원가입</button>
+        </div>
+        </form>
     </div>
     <!-- 개인정보 동의 모달 -->
     <div class="modal" tabindex="-1" id="check_modal">
@@ -187,14 +215,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">개인정보 수집 동의서</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>2022년 청년취업사관학교 1차 프로젝트 운영 및 관리 등을 위해 아래와 같이 개인정보를 수집 및 이용하는 내용에 대해 관계 법령에 따라 고지하오니 동의 후 등록을 진행하여 주시기 바랍니다.
+                    <p>2022년 청년취업사관학교 1차 프로젝트 운영 및 관리 등을 위해 아래와 같이 개인정보를 수집 및 이용하는 내용에 대해 관계 법령에 따라 고지하오니 동의 후 등록을 진행하여
+                        주시기 바랍니다.
                         <br>
                         1. 수집/이용 목적
-                        사무국은 개인정보를 ‘2022년 청년취업사관학교 1차 프로젝트’ 운영, 참가자 관리 및 서비스 제공 등 동 행사 관련 목적 이외의 용도로는 이용하지 않으며, 이용 목적이 변경될 경우에는 동의를 받아 처리하겠습니다.
+                        사무국은 개인정보를 ‘2022년 청년취업사관학교 1차 프로젝트’ 운영, 참가자 관리 및 서비스 제공 등 동 행사 관련 목적 이외의 용도로는 이용하지 않으며, 이용 목적이
+                        변경될 경우에는 동의를 받아 처리하겠습니다.
                         <br>
                         2. 수집/이용 항목
                         등록 신청 시, 참가자 확인 및 등록·관리 등 행사 운영을 위해 아래와 같은 개인정보를 수집/이용합니다.
@@ -207,7 +236,8 @@
                         위 수집/이용 항목은 ‘2022년 청년취업사관학교 1차 프로젝트’의 운영팀인 KimSamPark Team에 제공하여 수집/이용 목적에 따라 사용됩니다.
                         <br>
                         5. 동의 거부 권리 및 불이익
-                        개인정보/수집 이용에 따른 동의를 거부할 수 있으며, 이 경우 등록에 제한이 따릅니다.</p>
+                        개인정보/수집 이용에 따른 동의를 거부할 수 있으며, 이 경우 등록에 제한이 따릅니다.
+                    </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -215,6 +245,8 @@
             </div>
         </div>
     </div>
+    </div>
+
 </body>
 <script>
     //회원가입 검사 목록
@@ -335,7 +367,7 @@
     }
 
     //e-mail 유효성 검사 e_mail
-    function mailValidity(e){
+    function mailValidity(e) {
         if (!e.checkValidity()) {
             $('#mail_check_sucess').html('<p style="color:red;"> 형식에 맞지 않습니다.</p>');
             return false;

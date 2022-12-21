@@ -20,9 +20,6 @@ app.use(session({
 }));
 
 
-
-
-
 const router = require("./routes/ARRoutes");
 app.use('/', router);
 

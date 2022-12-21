@@ -147,15 +147,14 @@ exports.mypage = async (req, res) =>{
 };
 
 
-
+//마이페이지 업로드 기능
 exports.upload_file = (req, res) => {
     console.log("넘어오냐 여기?");
     console.log(req.file);
-    console.log(req.body);
-    let result = User.create({
-        user_img : req.body.img
+    User.update({
+        user_img : req.file.filename
     },
     { where :  { id : `${req.session.user}` } }
     );
-    res.send({ path : req.body.img });
+    res.send({ path : req.file.filename });
     };

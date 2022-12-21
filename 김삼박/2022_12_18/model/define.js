@@ -19,8 +19,8 @@ const User = (Sequelize, DataTypes) => {
                 type : DataTypes.STRING(10),
                 allowNull : false                
             },
-            user_img : { //user_img varchar(20) null
-                type : DataTypes.STRING(20),           
+            user_img : { //user_img varchar(50) null
+                type : DataTypes.STRING(50),           
             }
         },
         {
